@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom utility classes */
+.text-accent {
+  color: var(--accent);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+}
+
+.border-subtle {
+  border: 1px solid var(--border-subtle);
+}
+
+.border-strong {
+  border: 1px solid var(--border-strong);
+}
+
+.radius-sm {
+  border-radius: var(--radius-sm);
+}
+
+.radius-md {
+  border-radius: var(--radius-md);
+}
+
+.radius-lg {
+  border-radius: var(--radius-lg);
+}
+
+.transition {
+  transition: all var(--transition-normal);
+}
