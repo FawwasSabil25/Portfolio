@@ -2,15 +2,15 @@ import { PortfolioData } from '../types/portfolio';
 
 export const portfolioData: PortfolioData = {
   hero: {
-    name: 'Your Name',
+    name: 'Fawwas Nawwaf Sabil',
     role: 'Web Developer',
-    status: 'Available for Summer/Fall Internship',
-    about: 'Building accessible web experiences with focus on system architecture and quality assurance. Passionate about crafting clean code, designing intuitive interfaces, and ensuring robust user experiences.',
+    status: 'Fresh Graduate',
+    about: 'Building accessible web experiences with focus on system architecture . Passionate about crafting clean code, designing intuitive interfaces, and ensuring robust user experiences.',
     ctaText: 'View My Work',
     links: {
-      github: 'https://github.com/username',
+      github: 'https://github.com/FawwasSabil25',
       linkedin: 'https://linkedin.com/in/username',
-      email: 'email@example.com',
+      email: 'fawwas2573@gmail.com',
     },
   },
   projects: [
@@ -61,15 +61,15 @@ export const portfolioData: PortfolioData = {
     },
     systemAnalysis: {
       title: 'System Analysis & Architecture',
-      items: ['Requirements Gathering', 'Flow Diagrams', 'Database Design', 'System Documentation', 'API Design', 'Technical Specifications', 'Architecture Patterns'],
+      items: ['Requirements Gathering', 'Flow Diagrams', 'System Documentation'],
     },
     qaTesting: {
       title: 'Quality Assurance & Testing',
-      items: ['Test Case Design', 'Usability Testing', 'Bug Tracking', 'Performance Audits', 'Cross-browser Testing', 'Accessibility Testing', 'Manual Testing'],
+      items: ['Test Case Design', 'Usability Testing', 'Accessibility Testing', 'Manual Testing'],
     },
     tools: {
       title: 'Core Tools & Foundations',
-      items: ['Git & Version Control', 'Figma / Design Tools', 'Terminal / CLI', 'Linux / Unix', 'Docker Basics', 'CI/CD Fundamentals', 'Agile Methodologies'],
+      items: ['Git & Version Control', 'Figma / Design Tools', 'Terminal / CLI', 'CI/CD Fundamentals', 'Agile Methodologies'],
     },
   },
   experience: [
@@ -86,31 +86,17 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: 'exp2',
-      title: 'QA & Testing Intern',
-      organization: 'Tech Company',
-      period: 'Fall 2023',
+      title: 'and more to come...',
+      organization: '',
+      period: '',
       description: [
-        'Created and executed test cases for web application functionality.',
-        'Conducted usability testing with real users and documented findings.',
-        'Assisted in performance audits and bug triage.',
       ],
-    },
-    {
-      id: 'exp3',
-      title: 'Academic Project: System Analysis',
-      organization: 'University Lab',
-      period: '2024',
-      description: [
-        'Conducted requirements analysis for a campus management system.',
-        'Designed database schema and flow diagrams.',
-        'Documented technical specifications and architecture decisions.',
-      ],
-    },
+    }
   ],
   contact: {
     email: 'email@example.com',
     linkedin: 'https://linkedin.com/in/username',
-    github: 'https://github.com/username',
+    github: 'https://github.com/FawwasSabil25',
     timezone: 'GMT+X',
     responseTime: '24-48 hours',
   },

@@ -1,63 +1,106 @@
 import { portfolioData } from '../../data/portfolioData';
 import { SectionHeader } from '../common/SectionHeader';
+import { FloralWatermark } from '../../assets/ornaments/FloralWatermark';
 
 export function ContactSection() {
   const { contact } = portfolioData;
+  const subject = encodeURIComponent('Internship enquiry');
 
   return (
-    <section id="contact" className="py-16 md:py-24">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section
+      id="contact"
+      className="relative overflow-hidden"
+      style={{ paddingBlock: 'clamp(4rem, 8vw, 7rem)', paddingInline: 'clamp(1rem, 4vw, 2rem)' }}
+    >
+      {/* Floral watermarks — desktop only */}
+      <div
+        className="hidden lg:block absolute bottom-8 left-4 w-32 pointer-events-none"
+        aria-hidden="true"
+        style={{ opacity: 0.55 }}
+      >
+        <FloralWatermark side="left" style={{ width: '100%', height: 'auto' }} />
+      </div>
+      <div
+        className="hidden lg:block absolute bottom-8 right-4 w-32 pointer-events-none"
+        aria-hidden="true"
+        style={{ opacity: 0.55 }}
+      >
+        <FloralWatermark side="right" style={{ width: '100%', height: 'auto' }} />
+      </div>
+
+      <div
+        className="relative mx-auto"
+        style={{ maxWidth: '640px' }}
+      >
         <SectionHeader
-          eyebrow="04 // CONTACT"
+          eyebrow="Contact"
           title="Let's Connect"
-          description="I'm currently available for internship opportunities. Reach out to discuss potential contributions."
+          description="Open to internship opportunities. Reach out to discuss how I can contribute."
           align="center"
         />
 
-        <div className="bg-[#0f1118] border border-[rgba(255,255,255,0.08)] rounded-xl p-8 md:p-10">
-          <h3 className="text-2xl font-semibold text-[#f8fafc] mb-6">
-            Ready to Discuss Your Project?
-          </h3>
+        <div className="flex flex-col items-center gap-8">
+          {/* Primary — email */}
+          <a
+            href={`mailto:${contact.email}?subject=${subject}`}
+            className="inline-flex items-center h-12 px-8 text-sm font-medium rounded-[var(--radius-md)] transition-colors"
+            style={{
+              fontFamily: 'var(--font-sans)',
+              border: '1px solid var(--border-ornament)',
+              color: 'var(--fg-primary)',
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.background = 'rgba(148,175,220,0.08)';
+              (e.currentTarget as HTMLElement).style.borderColor = 'var(--accent)';
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.background = '';
+              (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-ornament)';
+            }}
+          >
+            Email Me Directly
+          </a>
 
-          <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              <a
-                href={`mailto:${contact.email}`}
-                className="flex-1 w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 bg-[#06b6d4] text-[#08090d] font-medium rounded-lg hover:bg-[#22d3ee] transition-colors"
-              >
-                Email Me Directly
-              </a>
-              <span className="text-[#64748b] text-sm">
-                {contact.responseTime} response time
-              </span>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href={contact.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-2.5 border border-[rgba(255,255,255,0.16)] text-[#f8fafc] rounded-lg hover:bg-[rgba(255,255,255,0.08)] transition-colors font-medium text-sm"
-              >
-                LinkedIn
-              </a>
-              <a
-                href={contact.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-2.5 border border-[rgba(255,255,255,0.16)] text-[#f8fafc] rounded-lg hover:bg-[rgba(255,255,255,0.08)] transition-colors font-medium text-sm"
-              >
-                GitHub
-              </a>
-            </div>
-
-            <div className="pt-6 border-t border-[rgba(255,255,255,0.08)]">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[rgba(255,255,255,0.04)] rounded-md">
-                <span className="text-[#64748b] text-sm">Current Timezone:</span>
-                <span className="text-[#06b6d4] text-sm font-mono">{contact.timezone}</span>
-              </div>
-            </div>
+          {/* Secondary links */}
+          <div
+            className="flex items-center gap-8"
+            style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8125rem' }}
+          >
+            <a
+              href={contact.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors"
+              style={{ color: 'var(--fg-secondary)' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
+            >
+              LinkedIn ↗
+            </a>
+            <a
+              href={contact.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors"
+              style={{ color: 'var(--fg-secondary)' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
+            >
+              GitHub ↗
+            </a>
           </div>
+
+          {/* Timezone */}
+          <p
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.75rem',
+              color: 'var(--fg-muted)',
+              letterSpacing: '0.05em',
+            }}
+          >
+            {contact.timezone} · Responds within {contact.responseTime}
+          </p>
         </div>
       </div>
     </section>

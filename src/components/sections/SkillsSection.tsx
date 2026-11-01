@@ -1,81 +1,103 @@
 import { portfolioData } from '../../data/portfolioData';
 import { SectionHeader } from '../common/SectionHeader';
 import { Badge } from '../common/Badge';
+import { FloralDivider } from '../../assets/ornaments/FloralDivider';
 
 export function SkillsSection() {
   const { skills } = portfolioData;
+  const allCategories = [
+    skills.frontend,
+    skills.systemAnalysis,
+    skills.qaTesting,
+    skills.tools,
+  ];
 
   return (
-    <section id="skills" className="py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="02 // COMPETENCIES"
-          title="Technical Capabilities"
-          description="Core skills in web development, system analysis, and quality assurance."
-        />
+    <>
+      {/* Botanical section divider — separates Projects from Skills */}
+      <div
+        style={{ paddingInline: 'clamp(1rem, 4vw, 2rem)', maxWidth: 'var(--container-max)', marginInline: 'auto' }}
+      >
+        <FloralDivider />
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Frontend & Web Development */}
-          <div className="border border-[rgba(255,255,255,0.08)] rounded-xl p-6 bg-[#0f1118]">
-            <h3 className="text-xl font-semibold text-[#f8fafc] mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#06b6d4]"></span>
+      <section
+        id="skills"
+        style={{ paddingBlock: 'clamp(4rem, 8vw, 7rem)', paddingInline: 'clamp(1rem, 4vw, 2rem)' }}
+      >
+        <div style={{ maxWidth: 'var(--container-max)', marginInline: 'auto' }}>
+          <SectionHeader
+            eyebrow="Competencies"
+            title="Technical Capabilities"
+            description="Core skills in web development, system analysis, and quality assurance."
+          />
+
+          {/* Primary card — Frontend spans full width */}
+          <div
+            className="mb-6 p-8"
+            style={{
+              border: '1px solid var(--border-subtle)',
+              borderRadius: 'var(--radius-lg)',
+            }}
+          >
+            <h3
+              className="mb-2"
+              style={{
+                fontFamily: 'var(--font-sans)',
+                fontWeight: 500,
+                fontSize: '1.0625rem',
+                color: 'var(--fg-primary)',
+              }}
+            >
+              <span style={{ color: 'var(--accent-warm)', marginRight: '0.5rem' }}>+</span>
               {skills.frontend.title}
             </h3>
+            <p
+              className="mb-5 text-sm leading-relaxed"
+              style={{ fontFamily: 'var(--font-sans)', color: 'var(--fg-secondary)' }}
+            >
+              Primary discipline — building accessible, responsive web interfaces.
+            </p>
             <div className="flex flex-wrap gap-2">
-              {skills.frontend.items.map((skill) => (
-                <Badge key={skill} variant="subtle" className="px-3 py-1.5">
-                  {skill}
-                </Badge>
+              {skills.frontend.items.map(skill => (
+                <Badge key={skill} variant="subtle">{skill}</Badge>
               ))}
             </div>
           </div>
 
-          {/* System Analysis */}
-          <div className="border border-[rgba(255,255,255,0.08)] rounded-xl p-6 bg-[#0f1118]">
-            <h3 className="text-xl font-semibold text-[#f8fafc] mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#06b6d4]"></span>
-              {skills.systemAnalysis.title}
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {skills.systemAnalysis.items.map((skill) => (
-                <Badge key={skill} variant="subtle" className="px-3 py-1.5">
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-          </div>
-
-          {/* QA & Testing */}
-          <div className="border border-[rgba(255,255,255,0.08)] rounded-xl p-6 bg-[#0f1118]">
-            <h3 className="text-xl font-semibold text-[#f8fafc] mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#06b6d4]"></span>
-              {skills.qaTesting.title}
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {skills.qaTesting.items.map((skill) => (
-                <Badge key={skill} variant="subtle" className="px-3 py-1.5">
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-          </div>
-
-          {/* Tools */}
-          <div className="border border-[rgba(255,255,255,0.08)] rounded-xl p-6 bg-[#0f1118]">
-            <h3 className="text-xl font-semibold text-[#f8fafc] mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#06b6d4]"></span>
-              {skills.tools.title}
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {skills.tools.items.map((skill) => (
-                <Badge key={skill} variant="subtle" className="px-3 py-1.5">
-                  {skill}
-                </Badge>
-              ))}
-            </div>
+          {/* Secondary cards — 3 columns on desktop */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {allCategories.slice(1).map(cat => (
+              <div
+                key={cat.title}
+                className="p-6"
+                style={{
+                  border: '1px solid var(--border-subtle)',
+                  borderRadius: 'var(--radius-lg)',
+                }}
+              >
+                <h3
+                  className="mb-5"
+                  style={{
+                    fontFamily: 'var(--font-sans)',
+                    fontWeight: 500,
+                    fontSize: '0.9375rem',
+                    color: 'var(--fg-primary)',
+                  }}
+                >
+                  <span style={{ color: 'var(--accent-warm)', marginRight: '0.5rem' }}>+</span>
+                  {cat.title}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {cat.items.map(skill => (
+                    <Badge key={skill} variant="subtle">{skill}</Badge>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

@@ -1,17 +1,25 @@
 import { ReactNode } from 'react';
-import { Container } from './Container';
 
 interface FooterProps {
   children?: ReactNode;
-  className?: string;
 }
 
-export function Footer({ children, className = '' }: FooterProps) {
+export function Footer({ children }: FooterProps) {
   return (
-    <footer className={`border-t border-[rgba(255,255,255,0.06)] bg-[#08090d] py-12 ${className}`}>
-      <Container className="flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer
+      className="py-10"
+      style={{ borderTop: '1px solid var(--border-subtle)' }}
+    >
+      <div
+        className="flex flex-col sm:flex-row items-center justify-between gap-4"
+        style={{
+          maxWidth: 'var(--container-max)',
+          marginInline: 'auto',
+          paddingInline: 'clamp(1rem, 4vw, 2rem)',
+        }}
+      >
         {children}
-      </Container>
+      </div>
     </footer>
   );
 }

@@ -6,24 +6,50 @@ interface SectionHeaderProps {
   className?: string;
 }
 
-export function SectionHeader({ eyebrow, title, description, align = 'left', className = '' }: SectionHeaderProps) {
-  const alignClasses = {
-    left: 'text-left',
-    center: 'text-center',
-  };
+export function SectionHeader({
+  eyebrow,
+  title,
+  description,
+  align = 'left',
+  className = '',
+}: SectionHeaderProps) {
+  const alignClass = align === 'center' ? 'text-center' : 'text-left';
 
   return (
-    <div className={`mb-10 ${alignClasses[align]} ${className}`}>
+    <div className={`mb-12 ${alignClass} ${className}`}>
       {eyebrow && (
-        <div className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-[#06b6d4]">
+        /* Geist Mono eyebrow: category marker only, no // decoration */
+        <p
+          className="mb-4 text-[0.6875rem] tracking-[0.18em] uppercase"
+          style={{ fontFamily: 'var(--font-mono)', color: 'var(--fg-muted)' }}
+        >
           {eyebrow}
-        </div>
+        </p>
       )}
-      <h2 className="text-2xl md:text-3xl font-semibold text-[#f8fafc] mb-3">
+      {/* Geist Serif section heading */}
+      <h2
+        className="leading-[1.1] tracking-[-0.015em]"
+        style={{
+          fontFamily: 'var(--font-serif)',
+          fontWeight: 400,
+          fontSize: 'clamp(1.875rem, 3.5vw, 2.5rem)',
+          color: 'var(--fg-primary)',
+        }}
+      >
         {title}
       </h2>
       {description && (
-        <p className="text-[#94a3b8] max-w-2xl mx-auto leading-relaxed">
+        <p
+          className="mt-4 leading-relaxed"
+          style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: '1rem',
+            color: 'var(--fg-secondary)',
+            maxWidth: align === 'center' ? '52ch' : '60ch',
+            marginLeft: align === 'center' ? 'auto' : undefined,
+            marginRight: align === 'center' ? 'auto' : undefined,
+          }}
+        >
           {description}
         </p>
       )}

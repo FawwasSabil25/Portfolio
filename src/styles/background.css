@@ -1,43 +1,50 @@
-/* Multi-layer lightweight background (CSS-only, 60 FPS) */
+/* ─── Midnight Delft Background (CSS-only, 60 FPS) ───────────────────── */
+
+/* Shared positioning for all fixed layers */
 .bg-layer {
   position: fixed;
   inset: 0;
+  pointer-events: none;
   z-index: -1;
 }
 
-/* Layer 1: Canvas Base - Deep obsidian */
+/* Layer 1 – Deep midnight ink base */
 .bg-layer__base {
   background-color: var(--bg-base);
 }
 
-/* Layer 2: Ambient Spotlight - Radial Aurora (top-centered) */
+/* Layer 2 – Ambient aurora: right-of-center on desktop, centered on mobile  */
 .bg-layer__spotlight {
-  position: fixed;
-  top: -20%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150%;
-  height: 50%;
-  background-image: radial-gradient(circle at center, rgba(6, 182, 212, 0.15) 0%, rgba(8, 9, 13, 0) 65%);
-  pointer-events: none;
-  z-index: -1;
+  background: radial-gradient(
+    ellipse 80% 55% at 62% -5%,
+    rgba(123, 167, 212, 0.12) 0%,
+    transparent 70%
+  );
 }
 
-/* Layer 3: Subtle Micro-Grid Pattern - SVG Data URI */
+@media (max-width: 767px) {
+  .bg-layer__spotlight {
+    background: radial-gradient(
+      ellipse 110% 45% at 50% -5%,
+      rgba(123, 167, 212, 0.10) 0%,
+      transparent 65%
+    );
+  }
+}
+
+/* Layer 3 – Hairline engineering grid (32px, silver-blue at 2.8% opacity) */
 .bg-layer__grid {
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M1 1h2v2H1V1zm20 0h2v2h-2V1zM1 20h2v2H1v-2zm20 0h2v2h-2v-2z' fill='%23ffffff' fill-opacity='0.03'/%3E%3Cpath d='M0 12h24v-1H0v1zm12 0v2h-1v-2h1z' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E");
-  background-size: 24px 24px;
-  pointer-events: none;
-  z-index: -1;
+  background-image:
+    linear-gradient(rgba(148, 175, 220, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 175, 220, 0.028) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
-/* Layer 4: Peripheral Vignette - Soft radial gradient around screen perimeters */
+/* Layer 4 – Peripheral vignette: narrows focus to center content */
 .bg-layer__vignette {
-  position: fixed;
-  inset: 0;
-  background-image: radial-gradient(rgba(8, 9, 13, 0) 40%, rgba(8, 9, 13, 0.8) 100%);
-  pointer-events: none;
-  z-index: -1;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    transparent 30%,
+    rgba(6, 8, 16, 0.75) 100%
+  );
 }

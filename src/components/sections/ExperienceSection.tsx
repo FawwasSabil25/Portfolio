@@ -5,47 +5,94 @@ export function ExperienceSection() {
   const { experience } = portfolioData;
 
   return (
-    <section id="experience" className="py-16 md:py-24">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="experience"
+      style={{ paddingBlock: 'clamp(4rem, 8vw, 7rem)', paddingInline: 'clamp(1rem, 4vw, 2rem)' }}
+    >
+      <div style={{ maxWidth: 'var(--container-max)', marginInline: 'auto' }}>
         <SectionHeader
-          eyebrow="03 // EXPERIENCE"
+          eyebrow="Experience"
           title="Academic & Professional Milestones"
-          description="Timeline of internships, academic projects, and relevant experiences."
+          description="Internships, academic projects, and relevant experience."
         />
 
-        <div className="relative">
-          {/* Vertical timeline line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-[rgba(255,255,255,0.08)] transform md:-translate-x-1/2"></div>
-
-          <div className="space-y-10">
+        {/* Timeline — left-aligned, all viewports */}
+        <div
+          className="relative pl-8"
+          style={{ borderLeft: '2px solid var(--border-subtle)' }}
+        >
+          <div className="flex flex-col gap-12">
             {experience.map((item) => (
-              <div key={item.id} className="relative flex flex-col md:flex-row gap-8">
-                {/* Timeline node */}
-                <div className="absolute left-[-4px] md:left-1/2 top-0 w-2 h-2 rounded-full bg-[#06b6d4] transform md:-translate-x-1/2 z-10 border-2 border-[#08090d]"></div>
+              <div key={item.id} className="relative">
+                {/* Diamond node */}
+                <span
+                  aria-hidden="true"
+                  className="absolute"
+                  style={{
+                    left: '-2.25rem',
+                    top: '0.25rem',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.625rem',
+                    color: 'var(--accent-warm)',
+                    lineHeight: 1,
+                  }}
+                >
+                  ◆
+                </span>
 
-                {/* Date */}
-                <div className="md:w-1/2 md:text-right pl-8 md:pr-8">
-                  <div className="font-mono text-xs text-[#64748b]">
-                    {item.period}
-                  </div>
-                </div>
+                {/* Period — eyebrow */}
+                <p
+                  className="mb-1"
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.6875rem',
+                    letterSpacing: '0.1em',
+                    color: 'var(--fg-muted)',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {item.period}
+                </p>
 
-                {/* Content */}
-                <div className="md:w-1/2 pl-8 md:pl-0">
-                  <h3 className="text-lg font-semibold text-[#f8fafc]">
-                    {item.title}
-                  </h3>
-                  <div className="text-[#94a3b8] text-sm mb-3">
-                    {item.organization}
-                  </div>
-                  <ul className="space-y-2">
-                    {item.description.map((bullet, index) => (
-                      <li key={index} className="text-[#94a3b8] text-sm leading-relaxed">
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {/* Role title */}
+                <h3
+                  className="mb-1"
+                  style={{
+                    fontFamily: 'var(--font-sans)',
+                    fontWeight: 500,
+                    fontSize: '1.0625rem',
+                    color: 'var(--fg-primary)',
+                  }}
+                >
+                  {item.title}
+                </h3>
+
+                {/* Organization */}
+                <p
+                  className="mb-4 text-sm"
+                  style={{ fontFamily: 'var(--font-sans)', color: 'var(--fg-secondary)' }}
+                >
+                  {item.organization}
+                </p>
+
+                {/* Bullets */}
+                <ul className="flex flex-col gap-2">
+                  {item.description.map((bullet, i) => (
+                    <li
+                      key={i}
+                      className="flex gap-3 text-sm leading-relaxed"
+                      style={{ fontFamily: 'var(--font-sans)', color: 'var(--fg-secondary)' }}
+                    >
+                      <span
+                        style={{ color: 'var(--fg-muted)', flexShrink: 0, marginTop: '0.05em' }}
+                        aria-hidden="true"
+                      >
+                        —
+                      </span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>

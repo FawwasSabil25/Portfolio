@@ -6,70 +6,125 @@ export function ProjectsSection() {
   const { projects } = portfolioData;
 
   return (
-    <section id="projects" className="py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="projects"
+      style={{ paddingBlock: 'clamp(4rem, 8vw, 7rem)', paddingInline: 'clamp(1rem, 4vw, 2rem)' }}
+    >
+      <div style={{ maxWidth: 'var(--container-max)', marginInline: 'auto' }}>
         <SectionHeader
-          eyebrow="01 // PROJECTS"
-          title="Featured Projects"
-          description="Showcasing technical contributions, system architecture, and quality assurance efforts."
+          eyebrow="Projects"
+          title="Featured Work"
+          description="Selected case studies in web development, system analysis, and quality assurance."
         />
 
-        <div className="space-y-12 md:space-y-16">
+        <div className="flex flex-col gap-16">
           {projects.map((project) => (
-            <article key={project.id} className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-3">
-                  <Badge variant="accent" className="order-2 md:order-1">
-                    {project.role.split('/')[0].trim()}
-                  </Badge>
-                  <span className="text-[#64748b] text-sm font-mono">Case Study 0{project.order}</span>
-                </div>
-                
-                <h3 className="text-2xl font-semibold text-[#f8fafc] mb-4">
-                  {project.title}
-                </h3>
-                
-                <p className="text-[#94a3b8] leading-relaxed mb-6">
-                  {project.longDescription}
-                </p>
-                
-                <div className="mb-6">
-                  <p className="text-[#64748b] text-sm mb-2">Tech Stack:</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech) => (
-                      <Badge key={tech} variant="subtle" className="px-3 py-1">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="flex flex-wrap gap-3">
-                  {project.links.code && (
-                    <a href={project.links.code} className="text-[#06b6d4] hover:text-[#22d3ee] font-medium text-sm inline-flex items-center gap-1">
-                      View Code
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </a>
-                  )}
-                  {project.links.demo && (
-                    <a href={project.links.demo} className="text-[#06b6d4] hover:text-[#22d3ee] font-medium text-sm inline-flex items-center gap-1">
-                      Live Demo
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </a>
-                  )}
-                  {project.links.architecture && (
-                    <a href={project.links.architecture} className="text-[#06b6d4] hover:text-[#22d3ee] font-medium text-sm inline-flex items-center gap-1">
-                      Architecture
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </a>
-                  )}
-                </div>
+            <article
+              key={project.id}
+              className="group relative pl-6 transition-colors"
+              style={{ borderLeft: '2px solid var(--border-subtle)' }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.borderLeftColor = 'var(--accent-warm)';
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.borderLeftColor = 'var(--border-subtle)';
+              }}
+            >
+              {/* Header row: case number + role badge */}
+              <div
+                className="flex flex-wrap items-center justify-between gap-3 mb-4"
+                style={{
+                  borderTop: '1px solid var(--border-subtle)',
+                  paddingTop: '1.25rem',
+                  marginLeft: '-1.5rem',
+                  paddingLeft: '1.5rem',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.6875rem',
+                    letterSpacing: '0.12em',
+                    color: 'var(--fg-muted)',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {String(project.order).padStart(2, '0')}
+                </span>
+                <Badge variant="accent">
+                  {project.role.split('/')[0].trim()}
+                </Badge>
+              </div>
+
+              {/* Title — Geist Sans h3 */}
+              <h3
+                className="mb-4"
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontWeight: 500,
+                  fontSize: '1.25rem',
+                  letterSpacing: '-0.01em',
+                  color: 'var(--fg-primary)',
+                }}
+              >
+                {project.title}
+              </h3>
+
+              {/* Description */}
+              <p
+                className="mb-6 leading-[1.7]"
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '0.9375rem',
+                  color: 'var(--fg-secondary)',
+                  maxWidth: '64ch',
+                }}
+              >
+                {project.longDescription}
+              </p>
+
+              {/* Tech stack chips */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                {project.techStack.map(tech => (
+                  <Badge key={tech} variant="subtle">{tech}</Badge>
+                ))}
+              </div>
+
+              {/* Links */}
+              <div className="flex flex-wrap gap-6">
+                {project.links.code && (
+                  <a
+                    href={project.links.code}
+                    className="text-sm transition-colors"
+                    style={{ fontFamily: 'var(--font-sans)', color: 'var(--accent)' }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--accent)'; }}
+                  >
+                    View Code →
+                  </a>
+                )}
+                {project.links.demo && (
+                  <a
+                    href={project.links.demo}
+                    className="text-sm transition-colors"
+                    style={{ fontFamily: 'var(--font-sans)', color: 'var(--accent)' }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--accent)'; }}
+                  >
+                    Live Demo →
+                  </a>
+                )}
+                {project.links.architecture && (
+                  <a
+                    href={project.links.architecture}
+                    className="text-sm transition-colors"
+                    style={{ fontFamily: 'var(--font-sans)', color: 'var(--accent)' }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--accent)'; }}
+                  >
+                    Architecture →
+                  </a>
+                )}
               </div>
             </article>
           ))}
