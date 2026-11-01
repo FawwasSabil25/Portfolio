@@ -43,6 +43,32 @@ ul, ol { list-style: none; }
   border-radius: 2px;
 }
 
+/* ─── Focus: Nav links ──────────────────────────────────────────────────── */
+.nav-link:focus-visible,
+.nav-cta:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ─── Focus: Project cards ──────────────────────────────────────────────── */
+.project-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-left-width: 2px;
+}
+
+/* ─── Focus: Hero CTA ───────────────────────────────────────────────────── */
+.hero-cta:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ─── Focus: Contact CTA ────────────────────────────────────────────────── */
+.contact-cta:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 /* ─── Typography ─────────────────────────────────────────────────────────── */
 h1, h2 {
   font-family: var(--font-serif);
@@ -81,4 +107,195 @@ h3, h4 {
 .section-divider {
   border: none;
   border-top: 1px solid var(--border-subtle);
+}
+
+/* ─── Project card hover lift ─────────────────────────────────────────── */
+.project-card {
+  transition: transform var(--t-normal), box-shadow var(--t-normal);
+}
+
+/* ─── Focus-visible on project cards ────────────────────────────────────── */
+.project-card:hover,
+.project-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(123,167,212,0.12);
+}
+
+/* ─── Nav links hover/focus transitions ─────────────────────────────────── */
+.nav-link {
+  transition: color var(--t-fast), background-color var(--t-fast);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--fg-primary);
+  background-color: rgba(148,175,220,0.06);
+}
+
+/* ─── Hero CTA transitions ──────────────────────────────────────────────── */
+.hero-cta {
+  transition: background-color var(--t-fast), border-color var(--t-fast);
+}
+
+.hero-cta:hover,
+.hero-cta:focus-visible {
+  background-color: rgba(148,175,220,0.08);
+  border-color: var(--accent);
+}
+
+/* ─── Hero link transitions ─────────────────────────────────────────────── */
+.hero-link {
+  transition: color var(--t-fast);
+}
+
+.hero-link:hover,
+.hero-link:focus-visible {
+  color: var(--fg-primary);
+}
+
+/* ─── Contact CTA transitions ───────────────────────────────────────────── */
+.contact-cta {
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+
+.contact-cta:hover,
+.contact-cta:focus-visible {
+  color: var(--fg-primary);
+  border-color: var(--accent);
+}
+
+/* ─── Button link transitions ───────────────────────────────────────────── */
+.btn-link {
+  transition: color var(--t-fast);
+}
+
+.btn-link:hover,
+.btn-link:focus-visible {
+  color: var(--fg-primary);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(123,167,212,0.12);
+}
+
+/* ─── Reduced motion override ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .project-card {
+    transition: none;
+  }
+  .project-card:hover {
+    transform: none;
+  }
+  .breathing-dot {
+    animation: none;
+  }
+  .ambient-light {
+    animation: none;
+  }
+  .floral-reveal, .floral-reveal-hero {
+    animation: none;
+  }
+}
+
+/* ─── Breathing dot animation ───────────────────────────────────────────── */
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.25); opacity: 0.7; }
+}
+
+.breathing-dot {
+  animation: breathe 2.5s ease-in-out infinite;
+}
+
+/* ─── Ambient light movement ────────────────────────────────────────────── */
+@keyframes ambient-drift {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(10px, 20px); }
+  100% { transform: translate(0, 0); }
+}
+
+.ambient-light {
+  animation: ambient-drift 60s ease-in-out infinite;
+}
+
+/* ─── Floral line reveal animation ──────────────────────────────────────── */
+@keyframes floralDraw {
+  from { stroke-dashoffset: 1000; opacity: 0; }
+  to { stroke-dashoffset: 0; opacity: 1; }
+}
+
+.floral-reveal {
+  animation: floralDraw 1.2s ease-out forwards;
+}
+
+/* ─── Floral reveal for longer paths (hero SVG) ─────────────────────────── */
+.floral-reveal-hero {
+  animation: floralDraw 1.8s ease-out forwards;
+}
+
+/* ─── Project card enter animation ──────────────────────────────────────── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.project-card-enter {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+/* ─── Section header glitch on hover ────────────────────────────────────── */
+@keyframes glitchShift {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(-1px, -1px); }
+  60% { transform: translate(1px, 1px); }
+  80% { transform: translate(1px, -1px); }
+  100% { transform: translate(0); }
+}
+
+.glitch-on-hover {
+  transition: transform 0.15s ease-out;
+}
+
+.glitch-on-hover:hover {
+  animation: glitchShift 0.3s linear;
+  cursor: pointer;
+}
+
+/* ─── Section entrance stagger ──────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-appear {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─── Subtle floral line reveal ─────────────────────────────────────────── */
+.floral-line-reveal {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: floralDraw 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+  opacity: 0;
+}
+
+/* ─── Ambience micro-interactions ───────────────────────────────────────── */
+.ambient-hover:hover .bg-layer__spotlight {
+  background: radial-gradient(
+    ellipse 85% 60% at 65% -8%,
+    rgba(123, 167, 212, 0.18) 0%,
+    transparent 75%
+  );
+}
+
+@media (max-width: 767px) {
+  .ambient-hover:hover .bg-layer__spotlight {
+    background: radial-gradient(
+      ellipse 120% 50% at 50% -8%,
+      rgba(123, 167, 212, 0.14) 0%,
+      transparent 70%
+    );
+  }
 }

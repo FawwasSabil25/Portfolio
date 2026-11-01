@@ -9,8 +9,12 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden"
-      style={{ paddingBlock: 'clamp(4rem, 8vw, 7rem)', paddingInline: 'clamp(1rem, 4vw, 2rem)' }}
+      className="section-appear relative overflow-hidden"
+      style={{ 
+        paddingBlock: 'clamp(4rem, 8vw, 7rem)', 
+        paddingInline: 'clamp(1rem, 4vw, 2rem)',
+        animationDelay: '0.8s' 
+      }}
     >
       {/* Floral watermarks — desktop only */}
       <div
@@ -43,19 +47,11 @@ export function ContactSection() {
           {/* Primary — email */}
           <a
             href={`mailto:${contact.email}?subject=${subject}`}
-            className="inline-flex items-center h-12 px-8 text-sm font-medium rounded-[var(--radius-md)] transition-colors"
+            className="inline-flex items-center h-12 px-8 text-sm font-medium rounded-[var(--radius-md)] transition-colors project-card"
             style={{
               fontFamily: 'var(--font-sans)',
               border: '1px solid var(--border-ornament)',
               color: 'var(--fg-primary)',
-            }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.background = 'rgba(148,175,220,0.08)';
-              (e.currentTarget as HTMLElement).style.borderColor = 'var(--accent)';
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.background = '';
-              (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-ornament)';
             }}
           >
             Email Me Directly

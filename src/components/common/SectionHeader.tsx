@@ -16,7 +16,7 @@ export function SectionHeader({
   const alignClass = align === 'center' ? 'text-center' : 'text-left';
 
   return (
-    <div className={`mb-12 ${alignClass} ${className}`}>
+    <div className={`mb-16 ${alignClass} ${className}`}>
       {eyebrow && (
         /* Geist Mono eyebrow: category marker only, no // decoration */
         <p
@@ -28,7 +28,7 @@ export function SectionHeader({
       )}
       {/* Geist Serif section heading */}
       <h2
-        className="leading-[1.1] tracking-[-0.015em]"
+        className="leading-[1.1] tracking-[-0.015em] glitch-on-hover"
         style={{
           fontFamily: 'var(--font-serif)',
           fontWeight: 400,

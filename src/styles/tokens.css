@@ -42,6 +42,11 @@
   /* Transitions */
   --t-fast:   150ms ease;
   --t-normal: 220ms ease;
+
+  /* Motion tokens — animatable properties for consistent timing */
+  --breathe-duration: 3s;
+  --glitch-duration: 0.15s;
+  --reveal-duration: 1.2s;
 }
 
 @media (prefers-reduced-motion: reduce) {

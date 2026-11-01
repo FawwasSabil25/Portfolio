@@ -23,10 +23,15 @@ export function SkillsSection() {
 
       <section
         id="skills"
-        style={{ paddingBlock: 'clamp(4rem, 8vw, 7rem)', paddingInline: 'clamp(1rem, 4vw, 2rem)' }}
+        className="section-appear"
+        style={{ 
+          paddingBlock: 'clamp(4rem, 8vw, 7rem)', 
+          paddingInline: 'clamp(1rem, 4vw, 2rem)',
+          animationDelay: '0.6s' 
+        }}
       >
         <div style={{ maxWidth: 'var(--container-max)', marginInline: 'auto' }}>
-          <SectionHeader
+        <SectionHeader
             eyebrow="Competencies"
             title="Technical Capabilities"
             description="Core skills in web development, system analysis, and quality assurance."
@@ -34,14 +39,14 @@ export function SkillsSection() {
 
           {/* Primary card — Frontend spans full width */}
           <div
-            className="mb-6 p-8"
+            className="mb-8 p-8"
             style={{
               border: '1px solid var(--border-subtle)',
               borderRadius: 'var(--radius-lg)',
             }}
           >
             <h3
-              className="mb-2"
+              className="mb-3"
               style={{
                 fontFamily: 'var(--font-sans)',
                 fontWeight: 500,

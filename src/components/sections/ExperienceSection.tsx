@@ -7,7 +7,12 @@ export function ExperienceSection() {
   return (
     <section
       id="experience"
-      style={{ paddingBlock: 'clamp(4rem, 8vw, 7rem)', paddingInline: 'clamp(1rem, 4vw, 2rem)' }}
+      className="section-appear"
+      style={{ 
+        paddingBlock: 'clamp(4rem, 8vw, 7rem)', 
+        paddingInline: 'clamp(1rem, 4vw, 2rem)',
+        animationDelay: '0.4s' 
+      }}
     >
       <div style={{ maxWidth: 'var(--container-max)', marginInline: 'auto' }}>
         <SectionHeader
@@ -21,7 +26,7 @@ export function ExperienceSection() {
           className="relative pl-8"
           style={{ borderLeft: '2px solid var(--border-subtle)' }}
         >
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-14">
             {experience.map((item) => (
               <div key={item.id} className="relative">
                 {/* Diamond node */}
@@ -42,7 +47,7 @@ export function ExperienceSection() {
 
                 {/* Period — eyebrow */}
                 <p
-                  className="mb-1"
+                  className="mb-2"
                   style={{
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.6875rem',
@@ -56,7 +61,7 @@ export function ExperienceSection() {
 
                 {/* Role title */}
                 <h3
-                  className="mb-1"
+                  className="mb-2"
                   style={{
                     fontFamily: 'var(--font-sans)',
                     fontWeight: 500,
@@ -69,7 +74,7 @@ export function ExperienceSection() {
 
                 {/* Organization */}
                 <p
-                  className="mb-4 text-sm"
+                  className="mb-5 text-sm"
                   style={{ fontFamily: 'var(--font-sans)', color: 'var(--fg-secondary)' }}
                 >
                   {item.organization}

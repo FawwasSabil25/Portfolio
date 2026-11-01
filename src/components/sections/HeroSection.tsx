@@ -19,14 +19,14 @@ export function HeroSection() {
       >
         {/* ── Text column ──────────────────────────────────── */}
         <div className="flex-1 min-w-0">
-          {/* Availability status — only when factually valid placeholder */}
+          {/* Availability status */}
           <p
             className="mb-8 flex items-center gap-2"
             style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--fg-muted)' }}
           >
-            {/* Gold dot — single restrained use of accent-warm */}
+            {/* Gold dot — breathing status indicator */}
             <span
-              className="block w-1.5 h-1.5 rounded-full flex-shrink-0"
+              className="block w-1.5 h-1.5 rounded-full flex-shrink-0 breathing-dot"
               style={{ background: 'var(--accent-warm)' }}
             />
             {hero.status}

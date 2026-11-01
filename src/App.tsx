@@ -8,10 +8,10 @@ import { ExperienceSection } from './components/sections/ExperienceSection';
 import { ContactSection } from './components/sections/ContactSection';
 
 const NAV_LINKS = [
-  { name: 'Projects',   href: '#projects'   },
-  { name: 'Skills',     href: '#skills'     },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Contact',    href: '#contact'    },
+  { name: 'projects',   href: '#projects'   },
+  { name: 'skills',     href: '#skills'     },
+  { name: 'experience', href: '#experience' },
+  { name: 'contact',    href: '#contact'    },
 ];
 
 function smoothTo(href: string) {
@@ -28,57 +28,20 @@ export function App() {
 
   return (
     <Router>
-      {/* Skip to main content */}
-      <a className="skip-link" href="#main-content">
-        Skip to main content
-      </a>
+      <a className="skip-link" href="#main-content">Skip to main content</a>
 
       {/* Fixed background layers */}
-      <div className="bg-layer bg-layer__base"  aria-hidden="true" />
-      <div className="bg-layer bg-layer__spotlight" aria-hidden="true" />
-      <div className="bg-layer bg-layer__grid" aria-hidden="true" />
-      <div className="bg-layer bg-layer__vignette" aria-hidden="true" />
+      <div className="bg-layer bg-layer__base"     aria-hidden="true" />
+      <div className="bg-layer bg-layer__spotlight ambient-light" aria-hidden="true" />
+      <div className="bg-layer bg-layer__grid"      aria-hidden="true" />
+      <div className="bg-layer bg-layer__vignette"  aria-hidden="true" />
 
       <Navbar
         navLinks={NAV_LINKS}
         onNavClick={handleNavClick}
         resumeHref="#"
-      >
-        {/* Brand wordmark */}
-        <div className="flex items-center gap-8">
-          <a
-            href="#"
-            onClick={e => { e.preventDefault(); smoothTo('#'); }}
-            className="text-lg font-medium tracking-tight"
-            style={{
-              fontFamily: 'var(--font-serif)',
-              color: 'var(--fg-primary)',
-              fontWeight: 400,
-            }}
-            aria-label="Return to top"
-          >
-            Fawas
-            <span style={{ color: 'var(--accent-warm)' }}>.</span>
-          </a>
-
-          {/* Desktop nav links */}
-          <nav className="hidden md:flex items-center gap-6" aria-label="Primary navigation">
-            {NAV_LINKS.map(link => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={e => handleNavClick(e, link.href)}
-                className="text-sm transition-colors"
-                style={{ fontFamily: 'var(--font-sans)', color: 'var(--fg-secondary)' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </Navbar>
+        statusText="open to internships"
+      />
 
       <main id="main-content">
         <Routes>
@@ -98,30 +61,20 @@ export function App() {
       </main>
 
       <Footer>
-        <p
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.75rem',
-            color: 'var(--fg-muted)',
-          }}
-        >
+        <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--fg-muted)' }}>
           Fawas
           <span style={{ color: 'var(--accent-warm)', margin: '0 0.5rem' }}>◆</span>
           © {new Date().getFullYear()}
         </p>
         <a
-          href="https://github.com/Fawwas25/new-porto"
+          href="https://github.com/username/new-porto"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xs transition-colors"
-          style={{
-            fontFamily: 'var(--font-mono)',
-            color: 'var(--fg-muted)',
-          }}
+          style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--fg-muted)' }}
           onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
           onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-muted)'; }}
         >
-          Source ↗
+          source ↗
         </a>
       </Footer>
     </Router>

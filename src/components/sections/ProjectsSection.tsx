@@ -18,11 +18,14 @@ export function ProjectsSection() {
         />
 
         <div className="flex flex-col gap-16">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <article
               key={project.id}
-              className="group relative pl-6 transition-colors"
-              style={{ borderLeft: '2px solid var(--border-subtle)' }}
+              className="group relative pl-6 transition-colors project-card project-card-enter"
+              style={{
+                borderLeft: '2px solid var(--border-subtle)',
+                animationDelay: `${index * 100}ms`,
+              }}
               onMouseEnter={e => {
                 (e.currentTarget as HTMLElement).style.borderLeftColor = 'var(--accent-warm)';
               }}
