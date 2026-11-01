@@ -40,10 +40,9 @@ export function App() {
         navLinks={NAV_LINKS}
         onNavClick={handleNavClick}
         resumeHref="#"
-        statusText="open to internships"
       />
 
-      <main id="main-content">
+      <main id="main-content" className="pt-32">
         <Routes>
           <Route
             path="/"

@@ -4,9 +4,9 @@ export const portfolioData: PortfolioData = {
   hero: {
     name: 'Fawwas Nawwaf Sabil',
     role: 'Web Developer',
-    status: 'Fresh Graduate',
+    status: 'Fresh from the oven!',
     about: 'Building accessible web experiences with focus on system architecture . Passionate about crafting clean code, designing intuitive interfaces, and ensuring robust user experiences.',
-    ctaText: 'View My Work',
+    ctaText: 'Explore!',
     links: {
       github: 'https://github.com/FawwasSabil25',
       linkedin: 'https://linkedin.com/in/username',
@@ -56,8 +56,8 @@ export const portfolioData: PortfolioData = {
   ],
   skills: {
     frontend: {
-      title: 'Frontend & Web Development',
-      items: ['React / Next.js', 'TypeScript', 'HTML5 / CSS3', 'Responsive Design', 'State Management', 'REST APIs', 'Accessibility (WCAG)'],
+      title: 'Web Development',
+      items: ['React / Next.js', 'Laravel / PHP', 'TypeScript', 'HTML5 / CSS3', 'Responsive Design', 'State Management', 'REST APIs', 'Accessibility (WCAG)'],
     },
     systemAnalysis: {
       title: 'System Analysis & Architecture',
@@ -94,10 +94,10 @@ export const portfolioData: PortfolioData = {
     }
   ],
   contact: {
-    email: 'email@example.com',
+    email: 'fawwas2573@gmail.com',
     linkedin: 'https://linkedin.com/in/username',
     github: 'https://github.com/FawwasSabil25',
-    timezone: 'GMT+X',
+    timezone: 'GMT+8',
     responseTime: '24-48 hours',
   },
 };
