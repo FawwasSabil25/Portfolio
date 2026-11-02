@@ -16,7 +16,7 @@ export interface PortfolioData {
   skills: {
     frontend: { title: string; items: string[] };
     systemAnalysis: { title: string; items: string[] };
-    qaTesting: { title: string; items: string[] };
+    language: { title: string; items: string[] };
     tools: { title: string; items: string[] };
   };
   experience: ExperienceItem[];

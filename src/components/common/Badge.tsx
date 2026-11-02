@@ -7,13 +7,11 @@ interface BadgeProps {
 }
 
 export function Badge({ children, variant = 'subtle', className = '' }: BadgeProps) {
-  const base = 'inline-flex items-center px-2 py-0.5 text-xs font-mono tracking-wide transition-colors';
+  const base = 'inline-flex items-center transition-colors';
 
   const variants = {
-    // Silver-blue accent chip — rectangular, border only, no fill
-    accent: 'border text-[var(--accent)] border-[var(--border-ornament)] rounded-[3px]',
-    // Neutral metadata chip — darker for better visibility
-    subtle: 'border text-[#d0d7e2] border-[rgba(148,175,220,0.2)] rounded-[3px]',
+    // Pill style with border only, no fill
+    subtle: 'px-3 py-1 text-sm border text-[#d0d7e2] border-[rgba(148,175,220,0.2)] rounded-full',
   };
 
   return (

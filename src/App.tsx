@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
+import { ParallaxStarBackground } from './components/background/ParallaxStarBackground';
 import { HeroSection } from './components/sections/HeroSection';
 import { ProjectsSection } from './components/sections/ProjectsSection';
 import { SkillsSection } from './components/sections/SkillsSection';
@@ -31,10 +32,7 @@ export function App() {
       <a className="skip-link" href="#main-content">Skip to main content</a>
 
       {/* Fixed background layers */}
-      <div className="bg-layer bg-layer__base"     aria-hidden="true" />
-      <div className="bg-layer bg-layer__spotlight ambient-light" aria-hidden="true" />
-      <div className="bg-layer bg-layer__grid"      aria-hidden="true" />
-      <div className="bg-layer bg-layer__vignette"  aria-hidden="true" />
+      <ParallaxStarBackground />
 
       <Navbar
         navLinks={NAV_LINKS}

@@ -273,6 +273,45 @@ h3, h4 {
   animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* ─── Star parallax animation (CSS-only) ─────────────────────────────────── */
+@keyframes animStar {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-2000px); }
+}
+
+/* ─── Star background (CSS-only, no DOM nodes per star) ─────────────────── */
+.star-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+}
+.star-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--size);
+  height: var(--size);
+  background: transparent;
+  box-shadow: var(--shadow);
+  animation: animStar var(--dur) linear infinite;
+}
+.star-layer::after {
+  content: "";
+  position: absolute;
+  top: 2000px;
+  left: 0;
+  width: var(--size);
+  height: var(--size);
+  background: transparent;
+  box-shadow: var(--shadow);
+}
+@media (prefers-reduced-motion: reduce) {
+  .star-layer { animation: none; }
+}
+
 /* ─── Subtle floral line reveal ─────────────────────────────────────────── */
 .floral-line-reveal {
   stroke-dasharray: 1000;

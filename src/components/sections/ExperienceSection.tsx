@@ -2,7 +2,7 @@ import { portfolioData } from '../../data/portfolioData';
 import { SectionHeader } from '../common/SectionHeader';
 
 export function ExperienceSection() {
-  const { experience } = portfolioData;
+  const { experience, experienceImage } = portfolioData;
 
   return (
     <section
@@ -17,88 +17,167 @@ export function ExperienceSection() {
       <div style={{ maxWidth: 'var(--container-max)', marginInline: 'auto' }}>
         <SectionHeader
           eyebrow="Experience"
-          title="Academic & Professional Milestones"
+          title="Professional Milestones"
           description="Professional Experience."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-7">
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '2.5rem',
+            alignItems: 'stretch',
+            marginTop: '2.5rem',
+          }}
+        >
+          {/* Timeline column */}
+          <div
+            style={{
+              flex: '2 1 360px',
+              minWidth: '0',
+            }}
+          >
             <div
-              className="relative pl-8"
-              style={{ borderLeft: '2px solid var(--border-subtle)' }}
+              style={{
+                position: 'relative',
+                paddingLeft: '2rem',
+                borderLeft: '2px solid var(--border-subtle)',
+                paddingBlock: '0.25rem',
+              }}
             >
-              <div className="flex flex-col gap-14">
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '3.5rem',
+                }}
+              >
                 {experience.map((item) => (
-                  <div key={item.id} className="relative">
+                  <div key={item.id} style={{ position: 'relative' }}>
                     <span
                       aria-hidden="true"
-                      className="absolute"
                       style={{
-                        left: '-2.25rem',
+                        position: 'absolute',
+                        left: 'calc(-2rem - 1px)',
                         top: '0.25rem',
                         fontFamily: 'var(--font-mono)',
                         fontSize: '0.625rem',
                         color: 'var(--accent-warm)',
                         lineHeight: 1,
+                        transform: 'translateX(-50%)',
                       }}
                     >
                       ◆
                     </span>
 
                     <p
-                      className="mb-2"
                       style={{
                         fontFamily: 'var(--font-mono)',
                         fontSize: '0.75rem',
                         letterSpacing: '0.1em',
                         color: 'var(--fg-muted)',
                         textTransform: 'uppercase',
+                        marginBottom: '0.5rem',
                       }}
                     >
                       {item.period}
                     </p>
 
                     <h3
-                      className="mb-2"
                       style={{
                         fontFamily: 'var(--font-sans)',
                         fontWeight: 500,
                         fontSize: '1.125rem',
                         color: 'var(--fg-primary)',
+                        marginBottom: '0.375rem',
+                        lineHeight: 1.35,
                       }}
                     >
                       {item.title}
                     </h3>
 
                     <p
-                      className="mb-5"
-                      style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9375rem', color: 'var(--fg-secondary)' }}
+                      style={{
+                        fontFamily: 'var(--font-sans)',
+                        fontSize: '0.9375rem',
+                        color: 'var(--fg-secondary)',
+                        marginBottom: '1.25rem',
+                      }}
                     >
                       {item.organization}
                     </p>
 
-                    <ul className="flex flex-col gap-2">
-                      {item.description.map((bullet, i) => (
-                        <li
-                          key={i}
-                          className="flex gap-3 text-sm leading-relaxed"
-                          style={{ fontFamily: 'var(--font-sans)', color: 'var(--fg-secondary)' }}
-                        >
-                          <span
-                            style={{ color: 'var(--fg-muted)', flexShrink: 0, marginTop: '0.05em' }}
-                            aria-hidden="true"
+                    {item.description.length > 0 && (
+                      <ul
+                        style={{
+                          listStyle: 'none',
+                          padding: 0,
+                          margin: 0,
+                          display: 'flex',
+                          flexDirection: 'column',
+                          gap: '0.625rem',
+                        }}
+                      >
+                        {item.description.map((bullet, i) => (
+                          <li
+                            key={i}
+                            style={{
+                              display: 'flex',
+                              gap: '0.75rem',
+                              alignItems: 'flex-start',
+                              fontSize: '0.875rem',
+                              lineHeight: 1.65,
+                            }}
                           >
-                            —
-                          </span>
-                          {bullet}
-                        </li>
-                      ))}
-                    </ul>
+                            <span
+                              style={{ color: 'var(--fg-muted)', flexShrink: 0 }}
+                              aria-hidden="true"
+                            >
+                              —
+                            </span>
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 ))}
               </div>
             </div>
           </div>
+
+          {/* Image column */}
+          {experienceImage && (
+            <div
+              style={{
+                flex: '1 1 280px',
+                minWidth: '0',
+              }}
+            >
+              <div
+                style={{
+                  position: 'relative',
+                  height: '100%',
+                  minHeight: '16rem',
+                  overflow: 'hidden',
+                  borderRadius: 'var(--radius-lg)',
+                  border: '1px solid var(--border-subtle)',
+                }}
+              >
+                <img
+                  src={experienceImage.src}
+                  alt={experienceImage.alt}
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                  }}
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

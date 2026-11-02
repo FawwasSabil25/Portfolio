@@ -17,154 +17,180 @@ export function ProjectsSection() {
           description="Selected case studies in web development."
         />
 
-        <div className="flex flex-col gap-16">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           {projects.map((project, index) => (
             <article
               key={project.id}
-              className="relative overflow-hidden transition-colors group project-card project-card-enter"
+              className="relative overflow-hidden"
               style={{
-                borderRadius: 'var(--radius-lg)',
                 border: '1px solid var(--border-subtle)',
-                animationDelay: `${index * 100}ms`,
-              }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.borderColor = 'var(--accent-warm)';
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)';
+                backgroundColor: 'rgba(12, 15, 28, 0.65)',
+                backdropFilter: 'blur(6px)',
+                animationDelay: `${index * 1000}ms`,
+                borderRadius: '8px',
               }}
             >
-              {/* Image banner - only if image is provided */}
+              {/* 1. Image in normal flow with fixed height - DO NOT CHANGE */}
               {project.image && (
-                <div
-                  className="absolute inset-x-0 top-0 h-48 pointer-events-none"
-                  aria-hidden="true"
-                >
+                <div className="relative w-full h-48 overflow-hidden md:h-60">
                   <img
                     src={project.image}
-                    alt=""
-                    className="object-cover object-top w-full h-full opacity-30"
-                  />
-                  <div
-                    className="absolute inset-0"
+                    alt={project.imageAlt}
+                    className="object-cover object-top w-full h-full"
                     style={{
-                      background: 'linear-gradient(to bottom, rgba(6,8,16,0) 0%, rgba(6,8,16,0.85) 85%)'
+                      maskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
+                      WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
                     }}
                   />
                 </div>
               )}
 
-              <div className="relative z-10">
-              {/* Header row: case number + date + role badge */}
+              {/* 2. Text below image - using inline styles for all spacing */}
               <div
-                className="flex flex-wrap items-center justify-between gap-3 mb-4"
                 style={{
-                  borderTop: '1px solid var(--border-subtle)',
-                  paddingTop: '1.25rem',
-                  paddingLeft: '1rem',
+                  position: 'relative',
+                  zIndex: 10,
+                  paddingInline: '1.5rem',
+                  paddingBottom: '1.5rem',
+                  paddingTop: '1rem',
                 }}
               >
-                <div className="flex items-center gap-3">
+                {/* Number */}
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.75rem',
+                    letterSpacing: '0.12em',
+                    color: 'var(--fg-muted)',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {String(project.order).padStart(2, '0')}
+                </span>
+
+                {/* Title */}
+                <h3
+                  style={{
+                    marginTop: '0.5rem',
+                    marginBottom: '0.5rem',
+                    fontFamily: 'var(--font-sans)',
+                    fontWeight: 500,
+                    fontSize: '1.25rem',
+                    letterSpacing: '-0.01em',
+                    color: 'var(--fg-primary)',
+                  }}
+                >
+                  {project.title}
+                </h3>
+
+                {/* Long Description */}
+                <p
+                  style={{
+                    marginBottom: '1rem',
+                    lineHeight: 1.6,
+                    maxWidth: '65ch',
+                    fontFamily: 'var(--font-sans)',
+                    fontSize: '0.9375rem',
+                    color: 'var(--fg-secondary)',
+                  }}
+                >
+                  {project.longDescription}
+                </p>
+
+                {/* Role row */}
+                <div
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    alignItems: 'center',
+                    gap: '0.75rem',
+                    marginTop: '1rem',
+                  }}
+                >
                   <span
                     style={{
                       fontFamily: 'var(--font-mono)',
-                      fontSize: '0.875rem',
-                      letterSpacing: '0.12em',
+                      fontSize: '0.7rem',
                       color: 'var(--fg-muted)',
                       textTransform: 'uppercase',
                     }}
                   >
-                    {String(project.order).padStart(2, '0')}
                   </span>
+                  <Badge variant="subtle">{project.role.split('/')[0].trim()}</Badge>
+                </div>
+
+                {/* Tech stack row */}
+                <div
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    alignItems: 'center',
+                    gap: '0.75rem',
+                    marginTop: '1rem',
+                  }}
+                >
                   <span
-                    aria-hidden="true"
                     style={{
-                      color: 'var(--border-subtle)',
-                      fontSize: '0.625rem',
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.7rem',
+                      color: 'var(--fg-muted)',
+                      textTransform: 'uppercase',
                     }}
                   >
-                    •
-                    •
-                    • 
                   </span>
-                  {project.date && (
-                    <span
-                      style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.875rem',
-                        color: 'var(--fg-muted)',
-                      }}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                    {project.techStack.map(tech => (
+                      <span
+                        key={tech}
+                        style={{
+                          padding: '0.25rem 0.75rem',
+                          fontSize: '0.8125rem',
+                          borderRadius: '8px',
+                          border: '1px solid rgba(148,175,220,0.2)',
+                          color: '#d0d7e2',
+                        }}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Links */}
+                <div
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '1.5rem',
+                    marginTop: '1.25rem',
+                    paddingTop: '1rem',
+                    borderTop: '1px solid var(--border-subtle)',
+                    fontSize: '0.875rem',
+                  }}
+                >
+                  {project.links.link && project.links.link !== '#' && (
+                    <a
+                      href={project.links.link}
+                      className="transition-colors"
+                      style={{ fontFamily: 'var(--font-sans)', color: 'var(--accent)' }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--accent)'; }}
                     >
-                      {project.date}
-                    </span>
+                      View Project →
+                    </a>
+                  )}
+                  {project.links.repository && (
+                    <a
+                      href={project.links.repository}
+                      className="transition-colors"
+                      style={{ fontFamily: 'var(--font-sans)', color: 'var(--accent)' }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--accent)'; }}
+                    >
+                      Architecture →
+                    </a>
                   )}
                 </div>
-                <Badge variant="accent">
-                  {project.role.split('/')[0].trim()}
-                </Badge>
-              </div>
-
-              {/* Title — Geist Sans h3 */}
-              <h3
-                className="mb-4"
-                style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontWeight: 500,
-                  fontSize: '1.25rem',
-                  letterSpacing: '-0.01em',
-                  color: 'var(--fg-primary)',
-                  paddingLeft: '1rem',
-                }}
-              >
-                {project.title}
-              </h3>
-
-              {/* Description */}
-              <p
-                className="mb-6 pl-2 leading-[1.7]"
-                style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '1rem',
-                  color: 'var(--fg-secondary)',
-                  maxWidth: '64ch',
-                  paddingLeft: '1rem',
-                }}
-              >
-                {project.longDescription}
-              </p>
-
-              {/* Tech stack chips */}
-              <div className="flex flex-wrap mb-6 gap-x-3 gap-y-2" style={{ paddingLeft: '1rem' }}>
-                {project.techStack.map(tech => (
-                  <Badge key={tech} variant="subtle">{tech}</Badge>
-                ))}
-              </div>
-
-              {/* Links */}
-              <div className="flex flex-wrap gap-6 pl-2" style={{ paddingLeft: '1rem' }}>
-                {project.links.link && (
-                  <a
-                    href={project.links.link}
-                    className="text-sm transition-colors"
-                    style={{ fontFamily: 'var(--font-sans)', color: 'var(--accent)' }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--accent)'; }}
-                  >
-                    View Project →
-                  </a>
-                )}
-                {project.links.repository && (
-                  <a
-                    href={project.links.repository}
-                    className="text-sm transition-colors"
-                    style={{ fontFamily: 'var(--font-sans)', color: 'var(--accent)' }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--accent)'; }}
-                  >
-                    Architecture →
-                  </a>
-                )}
-              </div>
               </div>
             </article>
           ))}
