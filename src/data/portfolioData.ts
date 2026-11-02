@@ -10,7 +10,7 @@ export const portfolioData: PortfolioData = {
     ctaText: '',
     links: {
       github: 'https://github.com/FawwasSabil25',
-      linkedin: 'https://linkedin.com/in/username',
+      linkedin: '',
       email: 'fawwas2573@gmail.com',
       instagram: 'https://instagram.com/fawassabil',
       phone: 'https://wa.me/6285285961325',

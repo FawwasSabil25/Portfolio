@@ -79,7 +79,10 @@ export function HeroSection() {
           </p>
 
           {/* Action row */}
-          <div className="flex flex-wrap items-center gap-4 mt-10">
+          <div
+            className="flex flex-wrap items-center gap-4 mt-10"
+            style={{ columnGap: '1.25rem', rowGap: '0.5rem' }}
+          >
             <a
               href="#projects"
               className="inline-flex items-center h-11 px-6 text-sm font-medium rounded-[var(--radius-md)] transition-colors"
@@ -125,33 +128,39 @@ export function HeroSection() {
               </a>
             )}
 
-            <div
-              className="flex flex-wrap items-center"
-              style={{ columnGap: '1.25rem', rowGap: '0.5rem', padding: '0.25rem 0.75rem' }}
+            <a
+              href={hero.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm transition-colors"
+              style={{ fontFamily: 'var(--font-sans)', color: 'var(--fg-secondary)' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
             >
-              <a
-                href={hero.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm transition-colors"
-                style={{ fontFamily: 'var(--font-sans)', color: 'var(--fg-secondary)' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
-              >
-                GitHub ↗
-              </a>
-              <a
-                href={hero.links.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm transition-colors"
-                style={{ fontFamily: 'var(--font-sans)', color: 'var(--fg-secondary)' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
-              >
-                Phone ↗
-              </a>
-            </div>
+              GitHub ↗
+            </a>
+            <a
+              href={hero.links.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm transition-colors"
+              style={{ fontFamily: 'var(--font-sans)', color: 'var(--fg-secondary)' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
+            >
+              LinkedIn ↗
+            </a>
+            <a
+              href={hero.links.phone}
+              target="_blank"
+              rel=""
+              className="text-sm transition-colors"
+              style={{ fontFamily: 'var(--font-sans)', color: 'var(--fg-secondary)' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
+            >
+              Phone ↗
+            </a>
           </div>
         </ScrollReveal>
 

@@ -200,6 +200,68 @@ h3, h4 {
   }
 }
 
+/* ─── Mobile Optimization (max-width: 767px) ───────────────────────────── */
+@media (max-width: 767px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Navbar */
+  header {
+    top: 0.5rem;
+  }
+  
+  .backdrop-blur-md {
+    padding-inline: 0.75rem;
+  }
+
+  .brand-link {
+    font-size: 1rem;
+    padding: 0.25rem 0.375rem;
+  }
+
+  nav[aria-label="Primary navigation"] {
+    display: none;
+  }
+
+  /* Hero Section */
+  .mt-7 {
+    margin-top: 1.5rem;
+  }
+
+  .mt-10 {
+    margin-top: 2rem;
+  }
+
+  .gap-4 {
+    gap: 1rem;
+  }
+
+  /* Projects Section */
+  .md\\:h-60 {
+    height: 180px !important;
+  }
+
+  /* Skills Section */
+  .grid-cols-\\(auto-fit\\,\\ minmax\\(260px\\,\\ 1fr\\)\\) {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Experience Section */
+  .flex-wrap.gap-2\\.5rem {
+    flex-direction: column !important;
+  }
+
+  .flex-1\\/1\\/280px {
+    flex: 1 1 100% !important;
+  }
+
+  /* Contact Section */
+  .max-w-640px {
+    padding-inline: 1rem;
+  }
+}
+
 /* ─── Breathing dot animation ───────────────────────────────────────────── */
 @keyframes breathe {
   0%, 100% { transform: scale(1); opacity: 1; }

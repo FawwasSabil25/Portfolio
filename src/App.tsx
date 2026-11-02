@@ -53,7 +53,6 @@ export function App() {
       <Navbar
         navLinks={NAV_LINKS}
         onNavClick={handleNavClick}
-        resumeHref="#"
       />
 
       <main id="main-content" className="pt-32">

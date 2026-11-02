@@ -10,7 +10,7 @@ export function Badge({ children, variant = 'subtle' }: BadgeProps) {
     display: 'inline-flex',
     alignItems: 'center',
     padding: '0.25rem 0.75rem',
-    borderRadius: '8px',
+    borderRadius: '9999px',
     fontSize: '0.8125rem',
     lineHeight: 1.4,
     whiteSpace: 'nowrap',

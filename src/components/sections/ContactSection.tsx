@@ -86,6 +86,19 @@ export function ContactSection() {
               className="flex flex-wrap items-center"
               style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8125rem', columnGap: '1.25rem', rowGap: '0.5rem' }}
             >
+              {contact.linkedin && (
+                <a
+                  href={contact.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors"
+                  style={{ color: 'var(--fg-secondary)' }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
+                >
+                  LinkedIn ↗
+                </a>
+              )}
               <a
                 href={contact.github}
                 target="_blank"
@@ -95,10 +108,19 @@ export function ContactSection() {
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
               >
-                GitHub↗ 
+                GitHub ↗
               </a>
               <a
-                href={contact.phone}
+                href={`tel:${contact.phone.replace('https://wa.me/', '')}`}
+                className="transition-colors"
+                style={{ color: 'var(--fg-secondary)' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
+              >
+                Phone ↗
+              </a>
+              <a
+                href={portfolioData.hero.links.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors"
@@ -106,18 +128,7 @@ export function ContactSection() {
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
               >
-                Phone↗ 
-              </a>
-              <a
-                href={contact.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors"
-                style={{ color: 'var(--fg-secondary)' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
-              >
-                Instagram↗ 
+                Instagram ↗
               </a>
             </div>
 

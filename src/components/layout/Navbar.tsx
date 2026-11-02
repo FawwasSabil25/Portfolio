@@ -3,10 +3,9 @@ import { useState, useEffect } from 'react';
 interface NavbarProps {
   navLinks?: { name: string; href: string }[];
   onNavClick?: (e: React.MouseEvent<HTMLAnchorElement>, href: string) => void;
-  resumeHref?: string;
 }
 
-export function Navbar({ navLinks = [], onNavClick, resumeHref = '#' }: NavbarProps) {
+export function Navbar({ navLinks = [], onNavClick }: NavbarProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -85,7 +84,7 @@ export function Navbar({ navLinks = [], onNavClick, resumeHref = '#' }: NavbarPr
 
             {/* ── Center Zone: Horizontal Nav Links ──────────────────────── */}
             <nav
-              className="flex-1 flex items-center justify-center gap-1 ml-4 md:ml-8"
+              className="flex items-center justify-center flex-1 gap-1 ml-4 md:ml-8"
               aria-label="Primary navigation"
             >
               {navLinks.map(link => (
@@ -110,40 +109,6 @@ export function Navbar({ navLinks = [], onNavClick, resumeHref = '#' }: NavbarPr
                 </a>
               ))}
             </nav>
-
-            {/* ── Right Zone: Contact CTA ────────────────────────────────── */}
-            <div className="flex-1 flex items-center justify-end md:justify-start md:ml-4">
-              <a
-                href={resumeHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center"
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.75rem',
-                  letterSpacing: '0.06em',
-                  color: 'var(--accent)',
-                  padding: '0.375rem 0.875rem',
-                  border: '1px solid var(--border-mid)',
-                  borderRadius: 'var(--radius-md)',
-                  transition: 'color var(--t-fast), border-color var(--t-fast), background-color var(--t-fast)',
-                }}
-                onMouseEnter={e => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.color = 'var(--fg-primary)';
-                  el.style.borderColor = 'var(--accent)';
-                  el.style.background = 'rgba(123,167,212,0.08)';
-                }}
-                onMouseLeave={e => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.color = 'var(--accent)';
-                  el.style.borderColor = 'var(--border-mid)';
-                  el.style.background = '';
-                }}
-              >
-                [ Get in Touch ]
-              </a>
-            </div>
           </div>
         </div>
       </header>
