@@ -45,7 +45,7 @@ export interface Project {
   imageAlt: string;
   links: {
     link: string;
-    architecture?: string;
+    repository?: string;
   };
   order: number;
 }

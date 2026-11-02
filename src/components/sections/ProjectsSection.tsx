@@ -43,7 +43,7 @@ export function ProjectsSection() {
                   <img
                     src={project.image}
                     alt=""
-                    className="w-full h-full object-cover object-top opacity-30"
+                    className="object-cover object-top w-full h-full opacity-30"
                   />
                   <div
                     className="absolute inset-0"
@@ -153,9 +153,9 @@ export function ProjectsSection() {
                     View Project →
                   </a>
                 )}
-                {project.links.architecture && (
+                {project.links.repository && (
                   <a
-                    href={project.links.architecture}
+                    href={project.links.repository}
                     className="text-sm transition-colors"
                     style={{ fontFamily: 'var(--font-sans)', color: 'var(--accent)' }}
                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
