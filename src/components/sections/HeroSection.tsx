@@ -14,15 +14,15 @@ export function HeroSection() {
       }}
     >
       <div
-        className="relative mx-auto flex flex-col lg:flex-row lg:items-start gap-12"
+        className="relative flex flex-col gap-12 mx-auto lg:flex-row lg:items-start"
         style={{ maxWidth: 'var(--container-max)' }}
       >
         {/* ── Text column ──────────────────────────────────── */}
         <div className="flex-1 min-w-0">
           {/* Availability status */}
           <p
-            className="mb-8 flex items-center gap-2"
-            style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--fg-muted)' }}
+            className="flex items-center gap-2 mb-8"
+            style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8125rem', color: 'var(--fg-muted)' }}
           >
             {/* Gold dot — breathing status indicator */}
             <span
@@ -56,7 +56,7 @@ export function HeroSection() {
             className="mt-7 leading-[1.7]"
             style={{
               fontFamily: 'var(--font-sans)',
-              fontSize: '1.0625rem',
+              fontSize: '1.125rem',
               color: 'var(--fg-secondary)',
               maxWidth: '52ch',
             }}
@@ -64,8 +64,20 @@ export function HeroSection() {
             {hero.about}
           </p>
 
+          {/* Education */}
+          <p
+            className="mt-3"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.875rem',
+              color: 'var(--fg-muted)',
+            }}
+          >
+            {hero.education}
+          </p>
+
           {/* Action row */}
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4 mt-10">
             <a
               href="#projects"
               className="inline-flex items-center h-11 px-6 text-sm font-medium rounded-[var(--radius-md)] transition-colors"
@@ -115,7 +127,7 @@ export function HeroSection() {
 
         {/* ── Floral column — desktop only ─────────────────── */}
         <div
-          className="hidden lg:flex flex-shrink-0 items-start justify-end"
+          className="items-start justify-end flex-shrink-0 hidden lg:flex"
           style={{ width: '260px', paddingTop: '1rem' }}
           aria-hidden="true"
         >

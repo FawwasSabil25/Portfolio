@@ -12,8 +12,8 @@ export function Badge({ children, variant = 'subtle', className = '' }: BadgePro
   const variants = {
     // Silver-blue accent chip — rectangular, border only, no fill
     accent: 'border text-[var(--accent)] border-[var(--border-ornament)] rounded-[3px]',
-    // Neutral metadata chip — barely-there border
-    subtle: 'border text-[var(--fg-secondary)] border-[var(--border-subtle)] rounded-[3px]',
+    // Neutral metadata chip — darker for better visibility
+    subtle: 'border text-[#d0d7e2] border-[rgba(148,175,220,0.2)] rounded-[3px]',
   };
 
   return (

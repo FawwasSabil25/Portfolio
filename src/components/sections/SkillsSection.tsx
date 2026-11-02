@@ -50,7 +50,7 @@ export function SkillsSection() {
               style={{
                 fontFamily: 'var(--font-sans)',
                 fontWeight: 500,
-                fontSize: '1.0625rem',
+                fontSize: '1.125rem',
                 color: 'var(--fg-primary)',
               }}
             >
@@ -58,8 +58,8 @@ export function SkillsSection() {
               {skills.frontend.title}
             </h3>
             <p
-              className="mb-5 text-sm leading-relaxed"
-              style={{ fontFamily: 'var(--font-sans)', color: 'var(--fg-secondary)' }}
+              className="mb-5 leading-relaxed"
+              style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9375rem', color: 'var(--fg-secondary)' }}
             >
               Primary discipline — building accessible, responsive web interfaces.
             </p>
@@ -86,7 +86,7 @@ export function SkillsSection() {
                   style={{
                     fontFamily: 'var(--font-sans)',
                     fontWeight: 500,
-                    fontSize: '0.9375rem',
+                    fontSize: '1.0625rem',
                     color: 'var(--fg-primary)',
                   }}
                 >

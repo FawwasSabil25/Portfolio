@@ -18,88 +18,86 @@ export function ExperienceSection() {
         <SectionHeader
           eyebrow="Experience"
           title="Academic & Professional Milestones"
-          description="Internships, academic projects, and relevant experience."
+          description="Professional Experience."
         />
 
-        {/* Timeline — left-aligned, all viewports */}
-        <div
-          className="relative pl-8"
-          style={{ borderLeft: '2px solid var(--border-subtle)' }}
-        >
-          <div className="flex flex-col gap-14">
-            {experience.map((item) => (
-              <div key={item.id} className="relative">
-                {/* Diamond node */}
-                <span
-                  aria-hidden="true"
-                  className="absolute"
-                  style={{
-                    left: '-2.25rem',
-                    top: '0.25rem',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.625rem',
-                    color: 'var(--accent-warm)',
-                    lineHeight: 1,
-                  }}
-                >
-                  ◆
-                </span>
-
-                {/* Period — eyebrow */}
-                <p
-                  className="mb-2"
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.6875rem',
-                    letterSpacing: '0.1em',
-                    color: 'var(--fg-muted)',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  {item.period}
-                </p>
-
-                {/* Role title */}
-                <h3
-                  className="mb-2"
-                  style={{
-                    fontFamily: 'var(--font-sans)',
-                    fontWeight: 500,
-                    fontSize: '1.0625rem',
-                    color: 'var(--fg-primary)',
-                  }}
-                >
-                  {item.title}
-                </h3>
-
-                {/* Organization */}
-                <p
-                  className="mb-5 text-sm"
-                  style={{ fontFamily: 'var(--font-sans)', color: 'var(--fg-secondary)' }}
-                >
-                  {item.organization}
-                </p>
-
-                {/* Bullets */}
-                <ul className="flex flex-col gap-2">
-                  {item.description.map((bullet, i) => (
-                    <li
-                      key={i}
-                      className="flex gap-3 text-sm leading-relaxed"
-                      style={{ fontFamily: 'var(--font-sans)', color: 'var(--fg-secondary)' }}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-7">
+            <div
+              className="relative pl-8"
+              style={{ borderLeft: '2px solid var(--border-subtle)' }}
+            >
+              <div className="flex flex-col gap-14">
+                {experience.map((item) => (
+                  <div key={item.id} className="relative">
+                    <span
+                      aria-hidden="true"
+                      className="absolute"
+                      style={{
+                        left: '-2.25rem',
+                        top: '0.25rem',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.625rem',
+                        color: 'var(--accent-warm)',
+                        lineHeight: 1,
+                      }}
                     >
-                      <span
-                        style={{ color: 'var(--fg-muted)', flexShrink: 0, marginTop: '0.05em' }}
-                        aria-hidden="true"
-                      >
-                        —
-                      </span>
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
+                      ◆
+                    </span>
+
+                    <p
+                      className="mb-2"
+                      style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.75rem',
+                        letterSpacing: '0.1em',
+                        color: 'var(--fg-muted)',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      {item.period}
+                    </p>
+
+                    <h3
+                      className="mb-2"
+                      style={{
+                        fontFamily: 'var(--font-sans)',
+                        fontWeight: 500,
+                        fontSize: '1.125rem',
+                        color: 'var(--fg-primary)',
+                      }}
+                    >
+                      {item.title}
+                    </h3>
+
+                    <p
+                      className="mb-5"
+                      style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9375rem', color: 'var(--fg-secondary)' }}
+                    >
+                      {item.organization}
+                    </p>
+
+                    <ul className="flex flex-col gap-2">
+                      {item.description.map((bullet, i) => (
+                        <li
+                          key={i}
+                          className="flex gap-3 text-sm leading-relaxed"
+                          style={{ fontFamily: 'var(--font-sans)', color: 'var(--fg-secondary)' }}
+                        >
+                          <span
+                            style={{ color: 'var(--fg-muted)', flexShrink: 0, marginTop: '0.05em' }}
+                            aria-hidden="true"
+                          >
+                            —
+                          </span>
+                          {bullet}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>

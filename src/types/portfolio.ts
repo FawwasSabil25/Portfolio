@@ -1,37 +1,10 @@
-export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  longDescription: string;
-  techStack: string[];
-  role: string;
-  links: {
-    code?: string;
-    demo?: string;
-    architecture?: string;
-  };
-  order: number;
-}
-
-export interface SkillCategory {
-  title: string;
-  items: string[];
-}
-
-export interface ExperienceItem {
-  id: string;
-  title: string;
-  organization: string;
-  period: string;
-  description: string[];
-}
-
 export interface PortfolioData {
   hero: {
     name: string;
     role: string;
     status: string;
     about: string;
+    education: string;
     ctaText: string;
     links: {
       github: string;
@@ -41,10 +14,10 @@ export interface PortfolioData {
   };
   projects: Project[];
   skills: {
-    frontend: SkillCategory;
-    systemAnalysis: SkillCategory;
-    qaTesting: SkillCategory;
-    tools: SkillCategory;
+    frontend: { title: string; items: string[] };
+    systemAnalysis: { title: string; items: string[] };
+    qaTesting: { title: string; items: string[] };
+    tools: { title: string; items: string[] };
   };
   experience: ExperienceItem[];
   contact: {
@@ -54,4 +27,33 @@ export interface PortfolioData {
     timezone: string;
     responseTime: string;
   };
+  experienceImage: {
+    src: string;
+    alt: string;
+  };
+}
+
+export interface Project {
+  id: string;
+  title: string;
+  date: string;
+  description: string;
+  longDescription: string;
+  techStack: string[];
+  role: string;
+  image: string;
+  imageAlt: string;
+  links: {
+    link: string;
+    architecture?: string;
+  };
+  order: number;
+}
+
+export interface ExperienceItem {
+  id: string;
+  title: string;
+  organization: string;
+  period: string;
+  description: string[];
 }

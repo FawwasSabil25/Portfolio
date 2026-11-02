@@ -4,12 +4,12 @@ import { FloralWatermark } from '../../assets/ornaments/FloralWatermark';
 
 export function ContactSection() {
   const { contact } = portfolioData;
-  const subject = encodeURIComponent('Internship enquiry');
+  const subject = encodeURIComponent('work enquiry');
 
   return (
     <section
       id="contact"
-      className="section-appear relative overflow-hidden"
+      className="relative overflow-hidden section-appear"
       style={{ 
         paddingBlock: 'clamp(4rem, 8vw, 7rem)', 
         paddingInline: 'clamp(1rem, 4vw, 2rem)',
@@ -18,14 +18,14 @@ export function ContactSection() {
     >
       {/* Floral watermarks — desktop only */}
       <div
-        className="hidden lg:block absolute bottom-8 left-4 w-32 pointer-events-none"
+        className="absolute hidden w-32 pointer-events-none lg:block bottom-8 left-4"
         aria-hidden="true"
         style={{ opacity: 0.55 }}
       >
         <FloralWatermark side="left" style={{ width: '100%', height: 'auto' }} />
       </div>
       <div
-        className="hidden lg:block absolute bottom-8 right-4 w-32 pointer-events-none"
+        className="absolute hidden w-32 pointer-events-none lg:block bottom-8 right-4"
         aria-hidden="true"
         style={{ opacity: 0.55 }}
       >
@@ -38,8 +38,8 @@ export function ContactSection() {
       >
         <SectionHeader
           eyebrow="Contact"
-          title="Let's Connect"
-          description="Open to internship opportunities. Reach out to discuss how I can contribute."
+          title="Let's Connect!"
+          description="Open to work opportunities. Reach out to discuss how I can contribute."
           align="center"
         />
 
@@ -52,9 +52,10 @@ export function ContactSection() {
               fontFamily: 'var(--font-sans)',
               border: '1px solid var(--border-ornament)',
               color: 'var(--fg-primary)',
+              padding: '0.3rem',
             }}
           >
-            Email Me Directly
+            Email Me!
           </a>
 
           {/* Secondary links */}
@@ -71,7 +72,7 @@ export function ContactSection() {
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
             >
-              LinkedIn ↗
+              LinkedIn↗ 
             </a>
             <a
               href={contact.github}
@@ -82,7 +83,18 @@ export function ContactSection() {
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
             >
-              GitHub ↗
+              GitHub↗ 
+            </a>
+            <a
+              href={contact.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors"
+              style={{ color: 'var(--fg-secondary)' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
+            >
+              Phone↗ 
             </a>
           </div>
 
@@ -90,7 +102,7 @@ export function ContactSection() {
           <p
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '0.75rem',
+              fontSize: '0.8125rem',
               color: 'var(--fg-muted)',
               letterSpacing: '0.05em',
             }}
