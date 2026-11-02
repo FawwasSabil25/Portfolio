@@ -1,8 +1,10 @@
 import { FloralHero } from '../../assets/ornaments/FloralHero';
 import { portfolioData } from '../../data/portfolioData';
+import ScrollReveal from '../ScrollReveal';
 
 export function HeroSection() {
   const { hero } = portfolioData;
+  const cvUrl = portfolioData.cvUrl;
 
   return (
     <section
@@ -18,7 +20,7 @@ export function HeroSection() {
         style={{ maxWidth: 'var(--container-max)' }}
       >
         {/* ── Text column ──────────────────────────────────── */}
-        <div className="flex-1 min-w-0">
+        <ScrollReveal className="flex-1 min-w-0" delay={0.2}>
           {/* Availability status */}
           <p
             className="flex items-center gap-2 mb-8"
@@ -98,7 +100,35 @@ export function HeroSection() {
               {hero.ctaText}
             </a>
 
-            <div className="flex items-center gap-5">
+            {cvUrl && (
+              <a
+                href={cvUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center h-11 px-6 text-sm font-medium rounded-[var(--radius-md)] transition-colors"
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  border: '1px solid var(--border-ornament)',
+                  color: 'var(--fg-primary)',
+                  padding: '0.25rem 0.75rem'
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLElement).style.background = 'rgba(148,175,220,0.08)';
+                  (e.currentTarget as HTMLElement).style.borderColor = 'var(--accent)';
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLElement).style.background = '';
+                  (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-ornament)';
+                }}
+              >
+                View CV
+              </a>
+            )}
+
+            <div
+              className="flex flex-wrap items-center"
+              style={{ columnGap: '1.25rem', rowGap: '0.5rem', padding: '0.25rem 0.75rem' }}
+            >
               <a
                 href={hero.links.github}
                 target="_blank"
@@ -119,11 +149,11 @@ export function HeroSection() {
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
               >
-                LinkedIn ↗
+                Phone ↗
               </a>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* ── Floral column — desktop only ─────────────────── */}
         <div

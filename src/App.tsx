@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
-import { ParallaxStarBackground } from './components/background/ParallaxStarBackground';
+import { TopographyBackground } from '@/components/animate-ui/backgrounds/topography';
 import { HeroSection } from './components/sections/HeroSection';
 import { ProjectsSection } from './components/sections/ProjectsSection';
 import { SkillsSection } from './components/sections/SkillsSection';
@@ -32,7 +32,23 @@ export function App() {
       <a className="skip-link" href="#main-content">Skip to main content</a>
 
       {/* Fixed background layers */}
-      <ParallaxStarBackground />
+      <div style={{ position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none' }}>
+        <TopographyBackground
+          lineColor="#33437d"
+          levels={16}
+          speed={1}
+          scale={1}
+          peak={1}
+          interactive={false}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            background: 'radial-gradient(ellipse at center, #0c0f1c 0%, #060810 100%)',
+          }}
+        />
+      </div>
 
       <Navbar
         navLinks={NAV_LINKS}

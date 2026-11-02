@@ -1,6 +1,7 @@
 import { portfolioData } from '../../data/portfolioData';
 import { SectionHeader } from '../common/SectionHeader';
 import { Badge } from '../common/Badge';
+import ScrollReveal from '../ScrollReveal';
 
 export function ProjectsSection() {
   const { projects } = portfolioData;
@@ -19,17 +20,16 @@ export function ProjectsSection() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           {projects.map((project, index) => (
-            <article
-              key={project.id}
-              className="relative overflow-hidden"
-              style={{
-                border: '1px solid var(--border-subtle)',
-                backgroundColor: 'rgba(12, 15, 28, 0.65)',
-                backdropFilter: 'blur(6px)',
-                animationDelay: `${index * 1000}ms`,
-                borderRadius: '8px',
-              }}
-            >
+            <ScrollReveal key={project.id} delay={index * 0.1}>
+              <article
+                className="relative overflow-hidden"
+                style={{
+                  border: '1px solid var(--border-subtle)',
+                  backgroundColor: 'rgba(12, 15, 28, 0.65)',
+                  backdropFilter: 'blur(6px)',
+                  borderRadius: '8px',
+                }}
+              >
               {/* 1. Image in normal flow with fixed height - DO NOT CHANGE */}
               {project.image && (
                 <div className="relative w-full h-48 overflow-hidden md:h-60">
@@ -192,7 +192,8 @@ export function ProjectsSection() {
                   )}
                 </div>
               </div>
-            </article>
+              </article>
+            </ScrollReveal>
           ))}
         </div>
       </div>

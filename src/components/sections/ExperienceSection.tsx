@@ -1,5 +1,6 @@
 import { portfolioData } from '../../data/portfolioData';
 import { SectionHeader } from '../common/SectionHeader';
+import ScrollReveal from '../ScrollReveal';
 
 export function ExperienceSection() {
   const { experience, experienceImage } = portfolioData;
@@ -7,11 +8,9 @@ export function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="section-appear"
       style={{ 
         paddingBlock: 'clamp(4rem, 8vw, 7rem)', 
         paddingInline: 'clamp(1rem, 4vw, 2rem)',
-        animationDelay: '0.4s' 
       }}
     >
       <div style={{ maxWidth: 'var(--container-max)', marginInline: 'auto' }}>
@@ -21,30 +20,31 @@ export function ExperienceSection() {
           description="Professional Experience."
         />
 
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '2.5rem',
-            alignItems: 'stretch',
-            marginTop: '2.5rem',
-          }}
-        >
-          {/* Timeline column */}
+        <ScrollReveal delay={0.2}>
           <div
             style={{
-              flex: '2 1 360px',
-              minWidth: '0',
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '2.5rem',
+              alignItems: 'stretch',
+              marginTop: '2.5rem',
             }}
           >
+            {/* Timeline column */}
             <div
               style={{
-                position: 'relative',
-                paddingLeft: '2rem',
-                borderLeft: '2px solid var(--border-subtle)',
-                paddingBlock: '0.25rem',
+                flex: '2 1 360px',
+                minWidth: '0',
               }}
             >
+              <div
+                style={{
+                  position: 'relative',
+                  paddingLeft: '2rem',
+                  borderLeft: '2px solid var(--border-subtle)',
+                  paddingBlock: '0.25rem',
+                }}
+              >
               <div
                 style={{
                   display: 'flex',
@@ -179,6 +179,7 @@ export function ExperienceSection() {
             </div>
           )}
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

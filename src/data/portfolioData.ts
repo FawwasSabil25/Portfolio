@@ -12,6 +12,8 @@ export const portfolioData: PortfolioData = {
       github: 'https://github.com/FawwasSabil25',
       linkedin: 'https://linkedin.com/in/username',
       email: 'fawwas2573@gmail.com',
+      instagram: 'https://instagram.com/fawassabil',
+      phone: 'https://wa.me/6285285961325',
     },
   },
   projects: [
@@ -89,11 +91,11 @@ export const portfolioData: PortfolioData = {
       organization: 'PT Telekomunikasi Selular (Telkomsel)',
       period: 'August - September 2025',
       description: [
-        'Developed responsive web components using React and TypeScript.', //masukin bulan pertama
-        'Participated in code reviews and implemented accessibility improvements.', //masukin Bulan kedua (troopers)
-        'Collaborated with system analysts to document technical requirements.', //masukin kadang test ui produk
-        'Collaborated .', //masukin kadang ikut ke event event tech
-        'Collaborated .', //pernah menjadi notetaker dalam acara telkomday 
+        'Transformed raw Excel data into clear, presentation-ready slides using Telkomsel’s official PowerPoint template for internal meetings', //masukin bulan pertama
+        'Designed and built a prototype of the Troopers web platform', //masukin Bulan kedua (troopers)
+        'Conducted manual UI testing on Telkomsel digital products, identifying bugs and usability issues', //masukin kadang test ui produk
+        'Served as official notetaker at Telkomsel Traction Day 2025, documenting key discussions and action items', //masukin kadang ikut ke event event tech
+        'Attended industry exhibitions and events to Attended industry exhibitions and events, gaining exposure to the telecommunications and digital ecosystem', //pernah menjadi notetaker dalam acara telkomday 
       ],
     },
     {
@@ -107,11 +109,13 @@ export const portfolioData: PortfolioData = {
   ],
   contact: {
     email: 'fawwas2573@gmail.com',
-    linkedin: 'https://linkedin.com/in/username',
+    linkedin: '',
     github: 'https://github.com/FawwasSabil25',
+    phone: 'https://wa.me/6285285961325',
     timezone: 'GMT+8',
     responseTime: '24-48 hours',
   },
+  cvUrl: '/CV-Fawwas-Nawwaf-Sabil.pdf',
   experienceImage: {
     src: '/images/experience/telkomsel.png',
     alt: 'Development workspace and team collaboration',

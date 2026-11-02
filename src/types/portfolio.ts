@@ -10,6 +10,8 @@ export interface PortfolioData {
       github: string;
       linkedin: string;
       email: string;
+      instagram?: string;
+      phone?: string;
     };
   };
   projects: Project[];
@@ -24,9 +26,11 @@ export interface PortfolioData {
     email: string;
     linkedin: string;
     github: string;
+    phone: string;
     timezone: string;
     responseTime: string;
   };
+  cvUrl: string;
   experienceImage: {
     src: string;
     alt: string;

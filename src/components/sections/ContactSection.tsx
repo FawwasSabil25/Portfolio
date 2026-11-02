@@ -1,6 +1,7 @@
 import { portfolioData } from '../../data/portfolioData';
 import { SectionHeader } from '../common/SectionHeader';
 import { FloralWatermark } from '../../assets/ornaments/FloralWatermark';
+import ScrollReveal from '../ScrollReveal';
 
 export function ContactSection() {
   const { contact } = portfolioData;
@@ -9,11 +10,10 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden section-appear"
+      className="relative overflow-hidden"
       style={{ 
         paddingBlock: 'clamp(4rem, 8vw, 7rem)', 
         paddingInline: 'clamp(1rem, 4vw, 2rem)',
-        animationDelay: '0.8s' 
       }}
     >
       {/* Floral watermarks — desktop only */}
@@ -36,80 +36,104 @@ export function ContactSection() {
         className="relative mx-auto"
         style={{ maxWidth: '640px' }}
       >
-        <SectionHeader
-          eyebrow="Contact"
-          title="Let's Connect!"
-          description="Open to work opportunities. Reach out to discuss how I can contribute."
-          align="center"
-        />
+        <ScrollReveal delay={0.2}>
+          <SectionHeader
+            eyebrow="Contact"
+            title="Let's Connect!"
+            description="I'm actively seeking opportunities to build and improve. If you're hiring, I'd love to hear from you."
+            align="center"
+          />
 
-        <div className="flex flex-col items-center gap-8">
-          {/* Primary — email */}
-          <a
-            href={`mailto:${contact.email}?subject=${subject}`}
-            className="inline-flex items-center h-12 px-8 text-sm font-medium rounded-[var(--radius-md)] transition-colors project-card"
-            style={{
-              fontFamily: 'var(--font-sans)',
-              border: '1px solid var(--border-ornament)',
-              color: 'var(--fg-primary)',
-              padding: '0.3rem',
-            }}
-          >
-            Email Me!
-          </a>
+          <div className="flex flex-col items-center gap-8">
+            {/* Primary — email */}
+            <a
+              href={`mailto:${contact.email}?subject=${subject}`}
+              className="inline-flex items-center h-12 px-8 text-sm font-medium rounded-[var(--radius-md)] transition-colors project-card"
+              style={{
+                fontFamily: 'var(--font-sans)',
+                border: '1px solid var(--border-ornament)',
+                color: 'var(--fg-primary)',
+                padding: '0.3rem',
+                marginBottom: '0.25rem',
+                width: '50%',
+                justifyContent: 'center',
+              }}
+            >
+              Email Me!
+            </a>
 
-          {/* Secondary links */}
-          <div
-            className="flex items-center gap-8"
-            style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8125rem' }}
-          >
-            <a
-              href={contact.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors"
-              style={{ color: 'var(--fg-secondary)' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
+            {portfolioData.cvUrl && (
+              <a
+                href={portfolioData.cvUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center h-12 px-8 text-sm font-medium rounded-[var(--radius-md)] transition-colors project-card"
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  border: '1px solid var(--border-ornament)',
+                  color: 'var(--fg-primary)',
+                  padding: '0.3rem',
+                  width: '50%',
+                  justifyContent: 'center',
+                }}
+              >
+                View CV
+              </a>
+            )}
+
+            {/* Secondary links */}
+            <div
+              className="flex flex-wrap items-center"
+              style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8125rem', columnGap: '1.25rem', rowGap: '0.5rem' }}
             >
-              LinkedIn↗ 
-            </a>
-            <a
-              href={contact.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors"
-              style={{ color: 'var(--fg-secondary)' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
+              <a
+                href={contact.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors"
+                style={{ color: 'var(--fg-secondary)' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
+              >
+                GitHub↗ 
+              </a>
+              <a
+                href={contact.phone}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors"
+                style={{ color: 'var(--fg-secondary)' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
+              >
+                Phone↗ 
+              </a>
+              <a
+                href={contact.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors"
+                style={{ color: 'var(--fg-secondary)' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
+              >
+                Instagram↗ 
+              </a>
+            </div>
+
+            {/* Timezone */}
+            <p
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.8125rem',
+                color: 'var(--fg-muted)',
+                letterSpacing: '0.05em',
+              }}
             >
-              GitHub↗ 
-            </a>
-            <a
-              href={contact.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors"
-              style={{ color: 'var(--fg-secondary)' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-secondary)'; }}
-            >
-              Phone↗ 
-            </a>
+              {contact.timezone} · Responds within {contact.responseTime}
+            </p>
           </div>
-
-          {/* Timezone */}
-          <p
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.8125rem',
-              color: 'var(--fg-muted)',
-              letterSpacing: '0.05em',
-            }}
-          >
-            {contact.timezone} · Responds within {contact.responseTime}
-          </p>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
