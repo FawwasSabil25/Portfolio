@@ -74,12 +74,12 @@ export function App() {
 
       <Footer>
         <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--fg-muted)' }}>
-          Fawas
+          made with ❤️ by Fawwas Sabil
           <span style={{ color: 'var(--accent-warm)', margin: '0 0.5rem' }}>◆</span>
           © {new Date().getFullYear()}
         </p>
         <a
-          href="https://github.com/username/new-porto"
+          href="https://github.com/FawwasSabil25/Portfolio"
           target="_blank"
           rel="noopener noreferrer"
           style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--fg-muted)' }}

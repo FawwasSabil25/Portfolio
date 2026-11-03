@@ -111,7 +111,7 @@ export function ContactSection() {
                 GitHub ↗
               </a>
               <a
-                href={`tel:${contact.phone.replace('https://wa.me/', '')}`}
+                href={contact.phone}
                 className="transition-colors"
                 style={{ color: 'var(--fg-secondary)' }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--fg-primary)'; }}

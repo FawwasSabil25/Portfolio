@@ -10,7 +10,7 @@ export const portfolioData: PortfolioData = {
     ctaText: '',
     links: {
       github: 'https://github.com/FawwasSabil25',
-      linkedin: '',
+      linkedin: 'https://www.linkedin.com/in/fawwas-sabil',
       email: 'fawwas2573@gmail.com',
       instagram: 'https://instagram.com/fawassabil',
       phone: 'https://wa.me/6285285961325',
@@ -109,13 +109,13 @@ export const portfolioData: PortfolioData = {
   ],
   contact: {
     email: 'fawwas2573@gmail.com',
-    linkedin: '',
+    linkedin: 'https://www.linkedin.com/in/fawwas-sabil',
     github: 'https://github.com/FawwasSabil25',
     phone: 'https://wa.me/6285285961325',
     timezone: 'GMT+8',
     responseTime: '24-48 hours',
   },
-  cvUrl: '/CV-Fawwas-Nawwaf-Sabil.pdf',
+  cvUrl: '/files/CV_FawwasSabil.pdf',
   experienceImage: {
     src: '/images/experience/telkomsel.png',
     alt: 'Development workspace and team collaboration',
