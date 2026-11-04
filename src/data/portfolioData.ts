@@ -3,7 +3,7 @@ import { PortfolioData } from '../types/portfolio';
 export const portfolioData: PortfolioData = {
   hero: {
     name: 'Fawwas Nawwaf Sabil',
-    role: 'Web Developer',
+    role: 'Web Developer & System Analyst',
     status: 'Fresh from the oven!',
     about: 'Informatics Engineer ◦ Web Development ◦ System Analyst',
     education: 'Pasundan University Bandung ◦ GPA 3.72/4.00 ◦ Class of 2026',
@@ -22,7 +22,7 @@ export const portfolioData: PortfolioData = {
       title: 'Myko Pingpong',
       date: '2026',
       description: 'Stock and order tracking for multi-platform sellers, with WhatsApp alerts.',
-      longDescription: 'Web app (PWA) that tracks stock and orders from Shopee, Tokopedia, and TikTok Shop in one place. Owners manage products and sales reports, managers process and ship orders. Built as my thesis, tested with usability testing.',
+      longDescription: 'Web app (PWA) that tracks stock and orders from Shopee, Tokopedia, and TikTok Shop in one place. Built as my thesis: as-is analysis with the Work System Framework, UML modeling, and usability testing.',
       techStack: ['Next.js' , 'TypeScript' , 'Tailwind CSS', 'Supabase', 'Fonnte API'],
       role: 'System Analyst & Developer',
       image: '/images/projects/myko.png.png',
@@ -73,7 +73,7 @@ export const portfolioData: PortfolioData = {
     },
     systemAnalysis: {
       title: 'System Analysis & Architecture',
-      items: ['Requirements Gathering', 'Flow Diagrams', 'System Documentation', 'Work System Framework'],
+      items: ['Requirements Gathering', 'Flow Diagrams', 'System Documentation', 'SRS & UML Modeling', 'Usability Testing', 'Work System Framework', 'Fishbone Diagram'],
     },
     language: { 
       title: 'Language Proficiency',
